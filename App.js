@@ -26,18 +26,18 @@ const Item = ({title}) => (
 export default function App()
 {
   return(
-      <View>
-        <Text>TODO APP</Text>
+      <View style={{paddingLeft:80,paddingTop:70}}>
+        <Text style={{color:"red"}}>TODO APP</Text>
         <TextInput placeholder='Enter title'/>
         <TextInput placeholder='Enter description'/>
         <TouchableOpacity>
-        <Text>Add</Text>
+        <Text style={{color:"green"}}>Add</Text>
       </TouchableOpacity>
         <FlatList
         data={myArray}
         renderItem={({item}) =>(
              <View>
-                <Item title={item.title} />
+                <Text>"title :"{item.title}</Text>
                 <Text> "Description : "{item.description}</Text>
              </View>
          
