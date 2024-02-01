@@ -1,20 +1,49 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { View, Text, TextInput, Button, FlatList, StyleSheet, SafeAreaView } from 'react-native';
+import { TouchableOpacity } from 'react-native';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+const myArray = [
+  {
+    title : 'title1',
+    description : 'desc1'
   },
-});
+  {
+    title : 'title2',
+    description : 'desc2'
+  },
+  {
+    title : 'title3',
+    description : 'desc3'
+  },
+];
+
+const Item = ({title}) => (
+  <View>
+    <Text>{title}</Text>
+  </View>
+);
+
+
+export default function App()
+{
+  return(
+      <View>
+        <Text>TODO APP</Text>
+        <TextInput placeholder='Enter title'/>
+        <TextInput placeholder='Enter description'/>
+        <TouchableOpacity>
+        <Text>Add</Text>
+      </TouchableOpacity>
+        <FlatList
+        data={myArray}
+        renderItem={({item}) =>(
+             <View>
+                <Item title={item.title} />
+                <Text> "Description : "{item.description}</Text>
+             </View>
+         
+        )}
+        keyExtractor={item => item.id}
+      />
+      </View>
+  )
+}
