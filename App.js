@@ -1,12 +1,18 @@
 import React from 'react';
-import Navigation from './src/routes/Navigation';
-import { store } from './src/Redux/store';
+import { NavigationContainer } from '@react-navigation/native';
+import TabNavigator from './src/routes/tabNavigate';
 import { Provider } from 'react-redux';
+import { store } from './src/Redux/store';
 
-export default function App() {
+const App = () => {
+  
   return (
     <Provider store={store}>
-      <Navigation />
-    </Provider> 
+      <NavigationContainer>
+      <TabNavigator />
+    </NavigationContainer>
+    </Provider>
   );
-}
+};
+
+export default App;
